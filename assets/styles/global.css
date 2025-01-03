@@ -7,6 +7,14 @@
     --font-style: normal;
     --bg-gradient: linear-gradient(135deg, #0f0f0f, #1c1c1c, #292929, #363636, #434343);
     --color-text: #ffffff;
+    --color-light: #ffffff;
+    --color-dark: #0f0f0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -17,6 +25,26 @@ body {
     font-weight: var(--font-weight);
     font-style: var(--font-style);
     background: var(--bg-gradient);
-    color: #ffffff;
+    color: var(--color-light);
     background-repeat: no-repeat;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+main > img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border: 5px solid var(--color-dark);
+    border-radius: 50%;
+    opacity: 0.5;
+    background-color: var(--color-light);
 }
