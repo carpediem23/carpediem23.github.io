@@ -11,7 +11,12 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "format": "prettier --write ."
   },
-  "author": "",
+  "targets": {
+    "default": {
+      "distDir": "./"
+    }
+  },
+  "author": "carpediem23",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.4.1",
