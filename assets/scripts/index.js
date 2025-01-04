@@ -11,6 +11,7 @@
     function init() {
       try {
         playAnimation();
+        typewriterAnimation();
 
         audioSwitch.addEventListener("click", onSoundSwitchToogled);
         document.querySelectorAll(".social-link").forEach((link) => {
@@ -19,6 +20,24 @@
       } catch (error) {
         console.error("An error occurred: ", error);
       }
+    }
+
+    function typewriterAnimation() {
+      const element = document.getElementById("typewriter");
+      const text = element.innerHTML;
+      element.innerHTML = "";
+      let index = 0;
+      const interval = 2000 / text.length; // 2 seconds divided by the length of the text
+
+      function type() {
+        if (index < text.length) {
+          element.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, interval);
+        }
+      }
+
+      type();
     }
 
     function onSoundSwitchToogled() {
@@ -47,7 +66,7 @@
     }
 
     function playAnimation() {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 200; i++) {
         drops.push(createDrop());
       }
 
@@ -58,14 +77,14 @@
       return {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        length: Math.random() * 1 + 1,
+        length: Math.random() * 1,
         speed: Math.random() * 1,
       };
     }
 
     function drawDrops() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
+      ctx.strokeStyle = "rgba(0, 131, 12, 1)";
       ctx.lineWidth = 0.25;
 
       drops.forEach((drop) => {

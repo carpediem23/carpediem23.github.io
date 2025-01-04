@@ -44,17 +44,26 @@
       </button>
     </header>
     <main>
-      <img src="./assets/images/profile_transparent.png" alt="Web Developer" />
+      <img
+        class="fade-in heart-pulse"
+        src="./assets/images/profile_transparent.png"
+        alt="Web Developer"
+      />
       <h2>carpediem23</h2>
-      <h5>My story is coming</h5>
+      <h5 id="typewriter">
+        Hi, I'm a fullstack developer who loves music and gaming. I'm writing a
+        short introduction about myself to add to my github profile. I use
+        technologies such as Javascript, Typescript, Node JS, React JS, React
+        Native, Next JS, Tailwind, HTML, CSS, Express JS. I enjoy creating web
+        and mobile applications that are user-friendly and responsive.
+      </h5>
       <ul>
         <li>
           <a
             class="social-link"
             href="https://github.com/carpediem23"
             target="_self"
-            ><i class="iconoir-github"></i>
-            <p>My Github Profile</p></a
+            ><i class="iconoir-github"></i> My Github Profile</a
           >
         </li>
         <li>
@@ -62,13 +71,12 @@
             class="social-link"
             href="https://www.linkedin.com/in/alptugturkis"
             target="_self"
-            ><i class="iconoir-linkedin"></i>
-            <p>My Linkdin Profile</p></a
+            ><i class="iconoir-linkedin"></i> My Linkdin Profile</a
           >
         </li>
       </ul>
       <canvas id="canvas"></canvas>
-      <audio id="ambience" autoplay muted loop>
+      <audio id="ambience" autoplay muted loop volume="0.1">
         <source src="./assets/audios/ambience.mp3" type="audio/mpeg" />
       </audio>
       <audio id="select" muted>
