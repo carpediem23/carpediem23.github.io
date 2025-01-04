@@ -3,6 +3,35 @@
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const drops = [];
+    const audio = new Audio("../assets/audios/ambiance.mp3");
+
+    function init() {
+      playAudio();
+      playAnimation();
+
+      document.querySelectorAll(".social-link").forEach((link) => {
+        link.addEventListener("mouseenter", () => {
+          const audioSelect = new Audio("../assets/audios/select.mp3");
+
+          audioSelect.volume = 0.25;
+          audioSelect.play();
+        });
+      });
+    }
+
+    function playAudio() {
+      audio.loop = true;
+      audio.volume = 0.5;
+      audio.play();
+    }
+
+    function playAnimation() {
+      for (let i = 0; i < 100; i++) {
+        drops.push(createDrop());
+      }
+
+      animate();
+    }
 
     function createDrop() {
       return {
@@ -11,10 +40,6 @@
         length: Math.random() * 1 + 1,
         speed: Math.random() * 1,
       };
-    }
-
-    for (let i = 0; i < 100; i++) {
-      drops.push(createDrop());
     }
 
     function drawDrops() {
@@ -46,6 +71,6 @@
       requestAnimationFrame(animate);
     }
 
-    animate();
+    init();
   };
 })();
