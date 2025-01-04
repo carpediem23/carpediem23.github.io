@@ -6,8 +6,17 @@
     <title>carpediem23 Web Thing</title>
     <link
       rel="icon"
-      href="./assets/images/profile_transparent.png"
+      href="./assets/images/profile_transparent.webp"
       type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="Welcome to carpediem23's personal web thing."
+    />
+    <meta name="author" content="carpediem23" />
+    <meta
+      name="keywords"
+      content="carpediem23, web developer, fullstack developer, javascript, typescript, node js, react js, react native, next js, tailwind, html, css, express js, asp.net, web application, mobile application, software development, training, mentoring"
     />
     <meta property="og:title" content="carpediem23 Web Thing" />
     <meta
@@ -34,35 +43,39 @@
       href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
     />
     <link rel="stylesheet" href="./assets/styles/global.css" />
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <script src="./assets/scripts/index.js"></script>
+    <script async src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script defer src="./assets/scripts/index.js"></script>
   </head>
   <body>
     <header>
-      <button id="audio-switch" data-can-play="false">
+      <button id="audio-switch" data-can-play="false" aria-label="Mute sound">
         <i class="iconoir-sound-off"></i>
       </button>
     </header>
     <main>
       <img
         class="fade-in heart-pulse"
-        src="./assets/images/profile_transparent.png"
+        src="./assets/images/profile_transparent.webp"
         alt="Web Developer"
       />
-      <h2>carpediem23</h2>
-      <h5 id="typewriter">
-        Hi, I'm a fullstack developer who loves music and gaming. I'm writing a
-        short introduction about myself to add to my github profile. I use
-        technologies such as Javascript, Typescript, Node JS, React JS, React
-        Native, Next JS, Tailwind, HTML, CSS, Express JS. I enjoy creating web
-        and mobile applications that are user-friendly and responsive.
-      </h5>
+      <h1>carpediem23</h1>
+      <h2 id="typewriter">
+        Hello, I am a fullstack developer who loves music and gaming. I am
+        writing a short introduction about myself to be included in my Github
+        profile. I love using technologies such as Javascript, Typescript, Node
+        JS, React JS, React Native, Next JS, Tailwind, HTML, CSS, Express JS and
+        ASP.NET and developing applications. I enjoy creating user-friendly and
+        responsive web and mobile applications. I have also been providing
+        enterprise software development training and mentoring to information
+        technology employees for about 2 years.
+      </h2>
       <ul>
         <li>
           <a
             class="social-link"
             href="https://github.com/carpediem23"
             target="_self"
+            aria-label="Visit my Github profile"
             ><i class="iconoir-github"></i> My Github Profile</a
           >
         </li>
@@ -71,7 +84,8 @@
             class="social-link"
             href="https://www.linkedin.com/in/alptugturkis"
             target="_self"
-            ><i class="iconoir-linkedin"></i> My Linkdin Profile</a
+            aria-label="Visit my LinkedIn profile"
+            ><i class="iconoir-linkedin"></i> My LinkedIn Profile</a
           >
         </li>
       </ul>

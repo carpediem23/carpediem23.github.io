@@ -85,6 +85,16 @@ p {
   margin-top: 0.25rem;
 }
 
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 .social-link {
   display: flex;
   justify-content: center;
@@ -109,9 +119,9 @@ p {
   animation: fadeIn 1s ease-in-out;
 }
 
-h5#typewriter {
+h2#typewriter {
   max-width: 300px;
-  height: 128px;
+  height: 224px;
   line-height: 1rem;
   text-align: justify;
   font-weight: 400;
