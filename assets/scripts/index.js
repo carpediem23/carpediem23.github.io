@@ -4,15 +4,26 @@
     const ctx = canvas.getContext("2d");
     const drops = [];
     const audio = new Audio("../assets/audios/ambiance.mp3");
+    audio.loop = true;
+    audio.volume = 0.5;
+    audio.muted = true; // Start muted
 
     function init() {
-      playAudio();
       playAnimation();
+      // Try to start audio muted
+      audio.play().catch(() => {
+        console.log('Audio autoplay failed');
+      });
+
+      // Listen for any user interaction to unmute
+      document.addEventListener('click', function unmute() {
+        audio.muted = false;
+        document.removeEventListener('click', unmute);
+      }, { once: true });
 
       document.querySelectorAll(".social-link").forEach((link) => {
         link.addEventListener("mouseenter", () => {
           const audioSelect = new Audio("../assets/audios/select.mp3");
-
           audioSelect.volume = 0.25;
           audioSelect.play();
         });
