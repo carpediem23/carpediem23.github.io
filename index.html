@@ -29,32 +29,51 @@
       name="twitter:image"
       content="./assets/images/profile_transparent.png"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
     <link rel="stylesheet" href="./assets/styles/global.css" />
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="./assets/scripts/index.js"></script>
   </head>
   <body>
+    <header>
+      <button id="audio-switch" data-can-play="false">
+        <i class="iconoir-sound-off"></i>
+      </button>
+    </header>
     <main>
       <img src="./assets/images/profile_transparent.png" alt="Web Developer" />
       <h2>carpediem23</h2>
       <h5>My story is coming</h5>
       <ul>
         <li>
-          <a class="social-link" href="https://github.com/carpediem23" target="_self"
+          <a
+            class="social-link"
+            href="https://github.com/carpediem23"
+            target="_self"
             ><i class="iconoir-github"></i>
-          </box-icon>
             <p>My Github Profile</p></a
           >
         </li>
         <li>
-          <a class="social-link" href="https://www.linkedin.com/in/alptugturkis" target="_self"
-            ><i class="iconoir-linkedin"></i></box-icon>
+          <a
+            class="social-link"
+            href="https://www.linkedin.com/in/alptugturkis"
+            target="_self"
+            ><i class="iconoir-linkedin"></i>
             <p>My Linkdin Profile</p></a
           >
         </li>
       </ul>
       <canvas id="canvas"></canvas>
+      <audio id="ambience" autoplay muted loop>
+        <source src="./assets/audios/ambience.mp3" type="audio/mpeg" />
+      </audio>
+      <audio id="select" muted>
+        <source src="./assets/audios/select.mp3" type="audio/mpeg" />
+      </audio>
     </main>
   </body>
 </html>

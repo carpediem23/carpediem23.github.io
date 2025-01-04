@@ -101,3 +101,17 @@ p {
   text-decoration: none;
   transition: all 0.3s;
 }
+
+button#audio-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  color: var(--color-text);
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 2rem;
+  cursor: pointer;
+}

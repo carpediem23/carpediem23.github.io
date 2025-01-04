@@ -3,26 +3,47 @@
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const drops = [];
-    const audio = new Audio("../assets/audios/ambiance.mp3");
+    const ambience = document.getElementById("ambience");
+    const audioSelect = document.getElementById("select");
+    const audioSwitch = document.getElementById("audio-switch");
+    let audioCanPlay = audioSwitch.getAttribute("data-can-play") === "true";
 
     function init() {
-      playAudio();
-      playAnimation();
+      try {
+        playAnimation();
 
-      document.querySelectorAll(".social-link").forEach((link) => {
-        link.addEventListener("mouseenter", () => {
-          const audioSelect = new Audio("../assets/audios/select.mp3");
-
-          audioSelect.volume = 0.25;
-          audioSelect.play();
+        audioSwitch.addEventListener("click", onSoundSwitchToogled);
+        document.querySelectorAll(".social-link").forEach((link) => {
+          link.addEventListener("mouseenter", onCocialMediaLinkHovered);
         });
-      });
+      } catch (error) {
+        console.error("An error occurred: ", error);
+      }
     }
 
-    function playAudio() {
-      audio.loop = true;
-      audio.volume = 0.5;
-      audio.play();
+    function onSoundSwitchToogled() {
+      audioCanPlay = !audioCanPlay;
+      audioSwitch.setAttribute("data-can-play", audioCanPlay);
+
+      if (audioCanPlay) {
+        audioSwitch.querySelector("i").classList.remove("iconoir-sound-off");
+        audioSwitch.querySelector("i").classList.add("iconoir-sound-high");
+        ambience.muted = false;
+        audioSelect.muted = false;
+        ambience.play();
+      } else {
+        audioSwitch.querySelector("i").classList.remove("iconoir-sound-high");
+        audioSwitch.querySelector("i").classList.add("iconoir-sound-off");
+        ambience.muted = true;
+        audioSwitch.muted = true;
+      }
+    }
+
+    function onCocialMediaLinkHovered() {
+      if (audioCanPlay) {
+        audioSelect.currentTime = 0;
+        audioSelect.play();
+      }
     }
 
     function playAnimation() {
