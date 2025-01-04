@@ -1,0 +1,16 @@
+{
+  "name": "carpediem23.github.io",
+  "version": "1.0.0",
+  "description": "carpediem23 Web Thing",
+  "source": "./index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "build": "npx parcel build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "carpediem23",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
