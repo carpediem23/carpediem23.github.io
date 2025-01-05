@@ -10,10 +10,12 @@
 
     function init() {
       try {
+        resizeCanvas();
         playAnimation();
         typewriterAnimation();
 
         audioSwitch.addEventListener("click", onSoundSwitchToogled);
+        window.addEventListener("resize", resizeCanvas);
         document.querySelectorAll(".social-link").forEach((link) => {
           link.addEventListener("mouseenter", onCocialMediaLinkHovered);
         });
@@ -22,12 +24,17 @@
       }
     }
 
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
     function typewriterAnimation() {
       const element = document.getElementById("typewriter");
       const text = element.innerHTML;
       element.innerHTML = "";
       let index = 0;
-      const interval = 2000 / text.length; // 2 seconds divided by the length of the text
+      const interval = 2000 / text.length;
 
       function type() {
         if (index < text.length) {
@@ -66,7 +73,7 @@
     }
 
     function playAnimation() {
-      for (let i = 0; i < 200; i++) {
+      for (let i = 0; i < 150; i++) {
         drops.push(createDrop());
       }
 
@@ -78,20 +85,20 @@
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         length: Math.random() * 1,
-        speed: Math.random() * 1,
+        speed: Math.random() * 2,
       };
     }
 
     function drawDrops() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.strokeStyle = "rgba(0, 131, 12, 1)";
-      ctx.lineWidth = 0.25;
+      ctx.fillStyle = "rgba(0, 0, 0, 0)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "rgba(0, 255, 0, 0.25)";
+      ctx.font = "12px monospace";
 
       drops.forEach((drop) => {
-        ctx.beginPath();
-        ctx.moveTo(drop.x, drop.y);
-        ctx.lineTo(drop.x, drop.y + drop.length);
-        ctx.stroke();
+        const text = String.fromCharCode(0x30a0 + Math.random() * 96);
+        ctx.fillText(text, drop.x, drop.y);
       });
     }
 
