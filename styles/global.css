@@ -105,6 +105,9 @@ h2 {
   border-radius: 0.5rem;
   color: var(--color-text);
   text-decoration: none;
+  perspective: 1000px;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
   transition: all 0.25s;
 }
 
@@ -113,13 +116,12 @@ h2 {
   background-color: var(--color-text);
   border-radius: 0.5rem;
   transform: scale(1.05);
-}
-
-.fade-in {
-  animation: fadeIn 1s ease-in-out;
+  transform: translateY(-5px) rotateX(10deg) rotateY(10deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 h2#typewriter {
+  visibility: hidden;
   max-width: 300px;
   height: 224px;
   line-height: 1rem;
@@ -139,6 +141,23 @@ button#audio-switch {
   padding: 0.5rem;
   font-size: 2rem;
   cursor: pointer;
+}
+
+#profile-image {
+  animation:
+    fadeIn 2s ease-in-out,
+    pulse 6s ease-in-out infinite;
+}
+
+#social-links {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards 4s;
+}
+
+.social-link > img {
+  width: 24px;
+  height: 24px;
+  clip-path: circle(50%);
 }
 
 @keyframes fadeIn {
@@ -164,10 +183,6 @@ button#audio-switch {
   50%,
   70%,
   90% {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
-}
-
-.heart-pulse {
-  animation: pulse 4s infinite;
 }

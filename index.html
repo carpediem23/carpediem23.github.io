@@ -1,14 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-32RRC75QRE"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-32RRC75QRE"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-32RRC75QRE');
+      gtag("config", "G-32RRC75QRE");
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,8 +56,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
     />
-    <link rel="stylesheet" href="./assets/styles/global.css" />
-    <script defer src="./assets/scripts/index.js"></script>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script defer src="./scripts/index.js"></script>
   </head>
   <body>
     <header>
@@ -62,7 +67,7 @@
     </header>
     <main>
       <img
-        class="fade-in heart-pulse"
+        id="profile-image"
         src="./assets/images/profile_transparent.webp"
         alt="Web Developer"
       />
@@ -77,14 +82,14 @@
         enterprise software development training and mentoring to information
         technology employees for about 2 years.
       </h2>
-      <ul>
+      <ul id="social-links">
         <li>
           <a
             class="social-link"
             href="https://github.com/carpediem23"
             target="_blank"
             aria-label="Visit my Github profile"
-            ><i class="iconoir-github"></i> My Github Profile</a
+            ><i class="iconoir-github"></i> Github Profile</a
           >
         </li>
         <li>
@@ -93,7 +98,7 @@
             href="https://www.linkedin.com/in/alptugturkis"
             target="_blank"
             aria-label="Visit my LinkedIn profile"
-            ><i class="iconoir-linkedin"></i> My LinkedIn Profile</a
+            ><i class="iconoir-linkedin"></i> LinkedIn Profile</a
           >
         </li>
       </ul>

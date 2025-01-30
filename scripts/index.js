@@ -31,6 +31,7 @@
 
     function typewriterAnimation() {
       const element = document.getElementById("typewriter");
+      element.style.visibility = "visible";
       const text = element.innerHTML;
       element.innerHTML = "";
       let index = 0;
