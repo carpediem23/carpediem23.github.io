@@ -1,1 +1,114 @@
-<!DOCTYPE html><html lang="en"><head><script async src="https://www.googletagmanager.com/gtag/js?id=G-32RRC75QRE"></script><script>function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","G-32RRC75QRE");</script><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>carpediem23 Web Thing</title><link rel="icon" href="/assets/images/profile_transparent.webp" type="image/x-icon"><meta name="description" content="Welcome to carpediem23's personal web thing."><meta name="author" content="carpediem23"><meta name="keywords" content="carpediem23, web developer, fullstack developer, javascript, typescript, node js, react js, react native, next js, tailwind, html, css, express js, asp.net, web application, mobile application, software development, training, mentoring"><meta property="og:title" content="carpediem23 Web Thing"><meta property="og:description" content="Welcome to carpediem23's personal web thing."><meta property="og:image" content="/assets/images/profile_transparent.webp"><meta property="og:url" content="https://carpediem23.github.io"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="carpediem23 Web Thing"><meta name="twitter:description" content="Welcome to carpediem23 web thing."><meta name="twitter:image" content="/assets/images/profile_transparent.webp"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"><link rel="stylesheet" href="/index.e7ef6f6b.css"><script defer src="/index.cbab392c.js"></script></head><body> <header> <button id="audio-switch" data-can-play="false" aria-label="Mute sound"> <i class="iconoir-sound-off"></i> </button> </header> <main> <img class="fade-in heart-pulse" src="/assets/images/profile_transparent.webp" alt="Web Developer"> <h1>carpediem23</h1> <h2 id="typewriter"> Hello, I am a fullstack developer who loves music and gaming. I am writing a short introduction about myself to be included in my Github profile. I love using technologies such as Javascript, Typescript, Node JS, React JS, React Native, Next JS, Tailwind, HTML, CSS, Express JS and ASP.NET and developing applications. I enjoy creating user-friendly and responsive web and mobile applications. I have also been providing enterprise software development training and mentoring to information technology employees for about 2 years. </h2> <ul> <li> <a class="social-link" href="https://github.com/carpediem23" target="_blank" aria-label="Visit my Github profile"><i class="iconoir-github"></i> My Github Profile</a> </li> <li> <a class="social-link" href="https://www.linkedin.com/in/alptugturkis" target="_blank" aria-label="Visit my LinkedIn profile"><i class="iconoir-linkedin"></i> My LinkedIn Profile</a> </li> </ul> <canvas id="canvas"></canvas> <audio id="ambience" autoplay muted loop volume="0.1"> <source src="/ambience.07c3fc0d.mp3" type="audio/mpeg"> </audio> <audio id="select" muted> <source src="/select.106c35fd.mp3" type="audio/mpeg"> </audio> </main> </body></html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-32RRC75QRE"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-32RRC75QRE");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>carpediem23 Web Thing</title>
+    <link
+      rel="icon"
+      href="./assets/images/profile_transparent.webp"
+      type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="Welcome to carpediem23's personal web thing."
+    />
+    <meta name="author" content="carpediem23" />
+    <meta
+      name="keywords"
+      content="carpediem23, web developer, fullstack developer, javascript, typescript, node js, react js, react native, next js, tailwind, html, css, express js, asp.net, web application, mobile application, software development, training, mentoring"
+    />
+    <meta property="og:title" content="carpediem23 Web Thing" />
+    <meta
+      property="og:description"
+      content="Welcome to carpediem23's personal web thing."
+    />
+    <meta
+      property="og:image"
+      content="./assets/images/profile_transparent.webp"
+    />
+    <meta property="og:url" content="https://carpediem23.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="carpediem23 Web Thing" />
+    <meta
+      name="twitter:description"
+      content="Welcome to carpediem23 web thing."
+    />
+    <meta
+      name="twitter:image"
+      content="./assets/images/profile_transparent.webp"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
+    <link rel="stylesheet" href="./styles/global.css" />
+    <script defer src="./scripts/index.js"></script>
+  </head>
+  <body>
+    <header>
+      <button id="audio-switch" data-can-play="false" aria-label="Mute sound">
+        <i class="iconoir-sound-off"></i>
+      </button>
+    </header>
+    <main>
+      <img
+        id="profile-image"
+        src="./assets/images/profile_transparent.webp"
+        alt="Web Developer"
+      />
+      <h1>carpediem23</h1>
+      <h2 id="typewriter">
+        Hello, I am a fullstack developer who loves music and gaming. I am
+        writing a short introduction about myself to be included in my Github
+        profile. I love using technologies such as Javascript, Typescript, Node
+        JS, React JS, React Native, Next JS, Tailwind, HTML, CSS, Express JS and
+        ASP.NET and developing applications. I enjoy creating user-friendly and
+        responsive web and mobile applications. I have also been providing
+        enterprise software development training and mentoring to information
+        technology employees for about 2 years.
+      </h2>
+      <ul id="social-links">
+        <li>
+          <a
+            class="social-link"
+            href="https://github.com/carpediem23"
+            target="_blank"
+            aria-label="Visit my Github profile"
+            ><i class="iconoir-github"></i> Github Profile</a
+          >
+        </li>
+        <li>
+          <a
+            class="social-link"
+            href="https://www.linkedin.com/in/alptugturkis"
+            target="_blank"
+            aria-label="Visit my LinkedIn profile"
+            ><i class="iconoir-linkedin"></i> LinkedIn Profile</a
+          >
+        </li>
+      </ul>
+      <canvas id="canvas"></canvas>
+      <audio id="ambience" autoplay muted loop volume="0.1">
+        <source src="./assets/audios/ambience.mp3" type="audio/mpeg" />
+      </audio>
+      <audio id="select" muted>
+        <source src="./assets/audios/select.mp3" type="audio/mpeg" />
+      </audio>
+    </main>
+  </body>
+</html>
