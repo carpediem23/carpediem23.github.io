@@ -85,7 +85,7 @@
       return {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        length: Math.random() * 1,
+        length: Math.random() * 50,
         speed: Math.random() * 2,
       };
     }
@@ -94,8 +94,8 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.fillStyle = "rgba(0, 0, 0, 0)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = "rgba(0, 255, 0, 0.25)";
-      ctx.font = "12px monospace";
+      ctx.fillStyle = "rgba(0, 255, 0, 0.2)";
+      ctx.font = "18px monospace";
 
       drops.forEach((drop) => {
         const text = String.fromCharCode(0x30a0 + Math.random() * 96);

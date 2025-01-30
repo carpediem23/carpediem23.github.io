@@ -3,7 +3,8 @@
 :root {
   --font-family: "Chakra Petch", serif;
   --font-optical-sizing: auto;
-  --font-weight: 387;
+  --font-size: 16px;
+  --font-weight: 400;
   --font-style: normal;
   --bg-gradient: linear-gradient(
     135deg,
@@ -26,18 +27,21 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
   font-family: var(--font-family);
   font-optical-sizing: var(--font-optical-sizing);
+  font-size: var(--font-size);
   font-weight: var(--font-weight);
   font-style: var(--font-style);
   background: var(--bg-gradient);
   color: var(--color-light);
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 1rem;
 }
 
 main {
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,14 +54,6 @@ main {
 i {
   color: inherit;
   background-color: inherit;
-}
-
-main > img {
-  width: 100%;
-  max-width: 150px;
-  height: auto;
-  border: 5px solid var(--color-text);
-  border-radius: 50%;
 }
 
 canvas {
@@ -105,22 +101,30 @@ h2 {
   border-radius: 0.5rem;
   color: var(--color-text);
   text-decoration: none;
-  perspective: 1000px;
-  transition: all 0.3s ease;
   transform-style: preserve-3d;
-  transition: all 0.25s;
+  perspective: 100x;
+  transition: transform 0.3s ease;
+  background: transparent;
 }
 
 .social-link:hover {
   color: black;
   background-color: var(--color-text);
-  border-radius: 0.5rem;
-  transform: scale(1.05);
-  transform: translateY(-5px) rotateX(10deg) rotateY(10deg);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: rotateX(10deg) rotateY(20deg);
+  box-shadow:
+    -5px -5px 20px rgba(0, 255, 24, 0.1),
+    5px 5px 20px rgba(0, 255, 24, 0.1);
 }
 
-h2#typewriter {
+#profile-image {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  border: 5px solid var(--color-text);
+  border-radius: 50%;
+}
+
+#typewriter {
   visibility: hidden;
   max-width: 300px;
   height: 224px;
@@ -129,7 +133,7 @@ h2#typewriter {
   font-weight: 400;
 }
 
-button#audio-switch {
+#audio-switch {
   position: fixed;
   top: 1rem;
   right: 1rem;
@@ -152,12 +156,6 @@ button#audio-switch {
 #social-links {
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards 4s;
-}
-
-.social-link > img {
-  width: 24px;
-  height: 24px;
-  clip-path: circle(50%);
 }
 
 @keyframes fadeIn {
