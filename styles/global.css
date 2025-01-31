@@ -116,6 +116,22 @@ h2 {
     5px 5px 20px rgba(0, 255, 24, 0.1);
 }
 
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
 #profile-image {
   width: 100%;
   max-width: 150px;
