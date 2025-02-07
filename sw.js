@@ -1,17 +1,22 @@
 const CACHE_NAME = "carpediem23-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles/global.css",
-  "/scripts/index.js",
-  "/assets/images/profile_transparent.webp",
-  "/assets/audios/ambience.mp3",
-  "/assets/audios/select.mp3",
+  "./",
+  "./index.html",
+  "./styles/global.css",
+  "./scripts/index.js",
+  "./assets/images/profile_transparent.webp",
+  "./assets/audios/ambience.mp3",
+  "./assets/audios/select.mp3",
 ];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache)),
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(urlsToCache).catch((error) => {
+        console.error("Cache addAll error:", error);
+        throw error;
+      });
+    }),
   );
 });
 
