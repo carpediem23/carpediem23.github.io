@@ -1,16 +1,18 @@
 (function () {
-  window.onload = () => {
-    if ("serviceWorker" in navigator) {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
       navigator.serviceWorker
-        .register(new URL("sw.js", window.location.origin))
+        .register(new URL("../sw.js", import.meta.url), { type: "module" })
         .then((registration) => {
           console.log("ServiceWorker registered:", registration);
         })
         .catch((error) => {
           console.log("ServiceWorker registration failed:", error);
         });
-    }
+    });
+  }
 
+  window.onload = () => {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const drops = [];
