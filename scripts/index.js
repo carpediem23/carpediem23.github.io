@@ -1,18 +1,27 @@
 (function () {
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register(new URL("../sw.js", import.meta.url), { type: "module" })
-        .then((registration) => {
-          console.log("ServiceWorker registered:", registration);
-        })
-        .catch((error) => {
-          console.log("ServiceWorker registration failed:", error);
-        });
-    });
-  }
+  window.onload = async () => {
+    if ("serviceWorker" in navigator) {
+      try {
+        // Önce mevcut kayıtları kontrol et
+        const registrations = await navigator.serviceWorker.getRegistrations();
 
-  window.onload = () => {
+        // Eğer kayıtlı service worker varsa unregister et
+        for (let registration of registrations) {
+          await registration.unregister();
+          console.log("Existing ServiceWorker unregistered");
+        }
+
+        // Yeni service worker'ı kaydet
+        const registration = await navigator.serviceWorker.register(
+          new URL("../sw.js", import.meta.url),
+          { type: "module" },
+        );
+        console.log("ServiceWorker registered:", registration);
+      } catch (error) {
+        console.log("ServiceWorker registration failed:", error);
+      }
+    }
+
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const drops = [];
