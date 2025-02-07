@@ -1,0 +1,2 @@
+!function(){let e=["/","/index.html","/styles/global.css","/scripts/index.js","/assets/images/profile_transparent.webp","/assets/audios/ambience.mp3","/assets/audios/select.mp3"];self.addEventListener("install",s=>{s.waitUntil(caches.open("carpediem23-v1").then(s=>s.addAll(e)))}),self.addEventListener("fetch",e=>{e.respondWith(caches.match(e.request).then(s=>s||fetch(e.request)))})}();
+//# sourceMappingURL=sw.js.map
