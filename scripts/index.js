@@ -1,5 +1,16 @@
 (function () {
   window.onload = () => {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register(new URL("sw.js", window.location.origin))
+        .then((registration) => {
+          console.log("ServiceWorker registered:", registration);
+        })
+        .catch((error) => {
+          console.log("ServiceWorker registration failed:", error);
+        });
+    }
+
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const drops = [];

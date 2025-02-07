@@ -13,6 +13,9 @@
   "author": "carpediem23",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.13.3",
+    "@parcel/service-worker": "^2.13.3",
+    "@parcel/transformer-webmanifest": "^2.13.3",
     "parcel": "^2.13.3",
     "prettier": "^3.4.2"
   }
