@@ -1,6 +1,6 @@
 {
   "name": "carpediem23.github.io",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "carpediem23 Virtual Card web application.",
   "source": "./index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
