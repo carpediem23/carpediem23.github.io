@@ -1,246 +1,162 @@
-@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap");
-
 :root {
-  --font-family: "Chakra Petch", serif;
-  --font-optical-sizing: auto;
-  --font-size: 16px;
-  --font-weight: 400;
-  --font-style: normal;
-  --bg-gradient: linear-gradient(135deg,
-      #0f0f0f,
-      #1c1c1c,
-      #292929,
-      #363636,
-      #434343);
-  --color-text: #00ff18;
-  --color-light: #ffffff;
-  --color-dark: #0f0f0f;
+  --color-text: #ffffff;
+  --color-background: rgba(0, 0, 0, 0.85);
+  --font-family: 'Consolas', monospace;
+  --font-size-base: 14px;
+  --font-size-small: 12px;
+  --font-size-large: 16px;
 }
 
-* {
+body,
+html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  color: var(--color-text);
-}
-
-body {
-  font-family: var(--font-family);
-  font-optical-sizing: var(--font-optical-sizing);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-  font-style: var(--font-style);
-  background: var(--bg-gradient);
-  color: var(--color-light);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 main {
-  min-height: 100vh;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+}
+
+#terminal-container {
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
-i {
-  color: inherit;
-  background-color: inherit;
-}
-
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
+.terminal {
+  background-color: var(--color-background);
+  border: 2px solid var(--color-text);
+  border-radius: 5px;
+  padding: 20px;
   width: 100%;
+  max-width: none;
   height: 100%;
-  pointer-events: none;
-  background-color: transparent;
+  min-height: 400px;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  position: relative;
+  backdrop-filter: blur(5px);
+  margin: 0;
+  box-sizing: border-box;
 }
 
-ul {
+.terminal-header {
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  list-style: none;
-}
-
-a {
-  cursor: pointer;
-}
-
-p {
-  margin-top: 0.25rem;
-}
-
-h1 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-.social-link {
-  display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid var(--color-text);
-  border-radius: 0.5rem;
-  color: var(--color-text);
-  text-decoration: none;
-  transform-style: preserve-3d;
-  perspective: 100x;
-  transition: transform 0.3s ease;
-  background: transparent;
 }
 
-.social-link:hover {
-  color: black;
-  background-color: var(--color-text);
-  transform: rotateX(10deg) rotateY(20deg);
-  box-shadow:
-    -5px -5px 20px rgba(0, 255, 24, 0.1),
-    5px 5px 20px rgba(0, 255, 24, 0.1);
-}
-
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  z-index: 999;
-  padding: 1em;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-}
-
-.skip-link:focus {
-  left: 50%;
-  transform: translateX(-50%);
-  top: 0;
-}
-
-.noscript-content {
+.terminal-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  text-align: center;
-  padding: 2rem;
+  gap: 8px;
 }
 
-.noscript-content img {
-  width: 150px;
-  height: 150px;
-  border: 5px solid var(--color-text);
+.terminal-button {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.noscript-content p {
-  max-width: 600px;
-  margin: 1rem auto;
-}
-
-.social-links-basic {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-links-basic a {
-  color: var(--color-text);
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--color-text);
-  border-radius: 0.5rem;
-}
-
-.social-links-basic a:hover,
-.social-links-basic a:focus {
-  background-color: var(--color-text);
-  color: var(--color-dark);
-}
-
-#profile-image {
-  width: 100%;
-  max-width: 150px;
-  height: auto;
-  border: 5px solid var(--color-text);
-  border-radius: 50%;
-}
-
-#typewriter {
-  visibility: hidden;
-  max-width: 300px;
-  height: 224px;
-  line-height: 1rem;
-  text-align: justify;
-  font-weight: 400;
-}
-
-#audio-switch {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  color: var(--color-text);
-  background-color: transparent;
   border: none;
-  border-radius: 100%;
+}
+
+.terminal-button.close {
+  background-color: #ff5f56;
+}
+
+.terminal-button.minimize {
+  background-color: #ffbd2e;
+}
+
+.terminal-button.maximize {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  color: white;
+  font-size: var(--font-size-base);
+  font-weight: bold;
+}
+
+.terminal-content {
+  padding: 10px 0;
+  height: calc(100% - 50px);
+  overflow-y: auto;
+}
+
+.command-line {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.prompt {
+  color: #00ff00;
+  margin-right: 10px;
+}
+
+.command-input {
+  background: transparent;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  width: 100%;
   outline: none;
-  padding: 0.5rem;
-  font-size: 2rem;
-  cursor: pointer;
 }
 
-#profile-image {
-  animation:
-    fadeIn 2s ease-in-out,
-    pulse 6s ease-in-out infinite;
+.command-input:disabled {
+  opacity: 1;
+  color: var(--color-text);
+  cursor: default;
+  -webkit-text-fill-color: var(--color-text);
 }
 
-#social-links {
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards 4s;
+.command-output {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  line-height: 1.4;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: var(--color-text);
+  animation: blink 1s infinite;
 }
 
-@keyframes pulse {
+@keyframes blink {
 
   0%,
-  20%,
-  40%,
-  60%,
-  80%,
   100% {
-    transform: scale(1);
+    opacity: 1;
   }
 
-  10%,
-  30%,
-  50%,
-  70%,
-  90% {
-    transform: scale(1.05);
+  50% {
+    opacity: 0;
   }
+}
+
+.terminal-output {
+  color: white;
+  margin-bottom: 15px;
+  line-height: 2;
+  /* Satır yüksekliğini 2 katına çıkar */
+}
+
+/* Her satırı ayrı bir paragraf olarak göstermek için */
+.terminal-output p {
+  margin: 0 0 1em 0;
+  /* Alt margin ekleyerek satırları ayır */
 }

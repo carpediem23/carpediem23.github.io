@@ -1,4 +1,4 @@
-const CACHE_NAME = "carpediem23-v1";
+const CACHE_NAME = "carpediem23-v2";
 
 let urlsToCache = [];
 

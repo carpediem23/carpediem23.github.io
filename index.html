@@ -33,18 +33,14 @@
   <meta name="twitter:description" content="carpediem23's Virtual Card Application" />
   <meta name="twitter:image" content="./assets/images/profile_transparent.webp" />
   <link rel="manifest" href="manifest.json" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
-  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/global.css">
   <script defer src="./scripts/index.js" type="module"></script>
 </head>
 
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <header role="banner">
-    <button id="audio-switch" data-can-play="false" aria-label="Toggle sound" aria-pressed="false">
-      <i class="iconoir-sound-off" aria-hidden="true"></i>
-    </button>
-  </header>
+  <main>
+    <section id="terminal-container"></section>
+  </main>
   <noscript>
     <div class="noscript-content">
       <img src="./assets/images/profile_transparent.webp" alt="Profile picture of carpediem23" width="150"
@@ -61,44 +57,6 @@
       </div>
     </div>
   </noscript>
-  <main id="main-content" role="main">
-    <img id="profile-image" src="./assets/images/profile_transparent.webp" alt="Profile picture of carpediem23" />
-    <h1 tabindex="-1">carpediem23</h1>
-    <h2 id="typewriter" aria-live="polite">
-      Hello, I am a fullstack developer who loves music and gaming. I am
-      writing a short introduction about myself to be included in my Github
-      profile. I love using technologies such as Javascript, Typescript, Node
-      JS, React JS, React Native, Next JS, Tailwind, HTML, CSS, Express JS and
-      ASP.NET and developing applications. I enjoy creating user-friendly and
-      responsive web and mobile applications. I have also been providing
-      enterprise software development training and mentoring to information
-      technology employees for about 2 years.
-    </h2>
-    <nav aria-label="Social media links">
-      <ul id="social-links">
-        <li>
-          <a class="social-link" href="https://github.com/carpediem23" target="_blank"
-            aria-label="Visit my Github profile (opens in new tab)" rel="noopener noreferrer">
-            <i class="iconoir-github" aria-hidden="true"></i> Github Profile
-          </a>
-        </li>
-        <li>
-          <a class="social-link" href="https://www.linkedin.com/in/alptugturkis" target="_blank"
-            aria-label="Visit my LinkedIn profile (opens in new tab)" rel="noopener noreferrer">
-            <i class="iconoir-linkedin" aria-hidden="true"></i> LinkedIn
-            Profile
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <canvas id="canvas" aria-hidden="true" role="presentation"></canvas>
-    <audio id="ambience" autoplay muted loop volume="0.1">
-      <source src="./assets/audios/ambience.mp3" type="audio/mpeg" />
-    </audio>
-    <audio id="select" muted>
-      <source src="./assets/audios/select.mp3" type="audio/mpeg" />
-    </audio>
-  </main>
 </body>
 
 </html>
