@@ -4,6 +4,7 @@
   "description": "carpediem23's Virtual Card Application",
   "start_url": "/",
   "display": "standalone",
+  "display_override": ["standalone", "browser"],
   "orientation": "portrait",
   "lang": "en",
   "dir": "ltr",
@@ -24,6 +25,7 @@
       "purpose": "any"
     }
   ],
+  "prefer_related_applications": false,
   "shortcuts": [
     {
       "name": "Home",

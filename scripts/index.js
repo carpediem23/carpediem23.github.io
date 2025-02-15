@@ -84,12 +84,9 @@
     createNewCommandLine() {
       const template = document.getElementById("command-line-template");
       const clone = template.content.cloneNode(true);
+
       this.content.appendChild(clone);
-
-      // Sayfayı en alta kaydır
       this.content.scrollTop = this.content.scrollHeight;
-
-      // Son input'a odaklan
       this.focusCurrentInput();
     }
 
@@ -100,8 +97,9 @@
         );
         if (lastInput) {
           lastInput.focus();
-          // Cursor'ı input'un sonuna taşı
+
           const len = lastInput.value.length;
+
           lastInput.setSelectionRange(len, len);
         }
       });
@@ -114,52 +112,27 @@
     }
 
     showAbout() {
-      const aboutText = `
-        Hi, I'm carpediem23! 👋
-        I'm a Fullstack Developer passionate about creating 
-        web and mobile applications using modern technologies.
-        I love music 🎵 and gaming 🎮 in my free time.
-      `;
-      this.addOutput(aboutText);
+      const template = document.getElementById("about-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
     }
 
     showSkills() {
-      const skillsText = `
-        Technical Skills:
-        <p>
-          - <strong>Frontend:</srong> React.js, React Native, Next.js, JavaScript, TypeScript
-        </p>
-        <p>
-          - <strong>Backend:</srong> Node.js, Express.js, ASP.NET
-        </p>
-        <p>
-          - <strong>Database:</srong> MongoDB, PostgreSQL, MySQL
-        </p>
-        <p>
-          - <strong>Other:</srong> Git, Docker, Google Cloud, Azure
-        </p>
-      `;
-      this.addOutput(skillsText);
+      const template = document.getElementById("skills-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
     }
 
     showProjects() {
-      const projectsText = `
-        Notable Projects:
-        1. Virtual Card Terminal (This website!)
-        2. Various Web, Game and Mobile Applications
-        
-        For more details, visit: https://github.com/carpediem23
-      `;
-      this.addOutput(projectsText);
+      const template = document.getElementById("projects-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
     }
 
     showContact() {
-      const contactText = `
-        Get in touch:
-        - GitHub: https://github.com/carpediem23
-        - LinkedIn: https://www.linkedin.com/in/alptugturkis
-      `;
-      this.addOutput(contactText);
+      const template = document.getElementById("contact-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
     }
 
     clearTerminal() {
