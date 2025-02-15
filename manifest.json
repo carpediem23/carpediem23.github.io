@@ -1,18 +1,13 @@
 {
   "name": "carpediem23's Virtual Card",
-  "short_name": "carpediem23vCard",
+  "short_name": "vCard",
   "description": "carpediem23's Virtual Card Application",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "lang": "en",
   "dir": "ltr",
-  "installable": true,
-  "categories": [
-    "development",
-    "javascript",
-    "technology"
-  ],
+  "categories": ["development", "javascript", "technology"],
   "background_color": "#0f0f0f",
   "theme_color": "#00ff18",
   "icons": [
@@ -34,8 +29,5 @@
       "name": "Home",
       "url": "/"
     }
-  ],
-  "edge_side_panel": {
-    "preferred_width": 400
-  }
+  ]
 }

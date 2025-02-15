@@ -1,16 +1,8 @@
 const CACHE_NAME = "carpediem23-v2";
-
 let urlsToCache = [];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache).catch((error) => {
-        console.error("Cache addAll error:", error);
-        throw error;
-      });
-    }),
-  );
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", (event) => {
@@ -26,6 +18,10 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  if (!event.request.url.startsWith("http")) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request).then((response) => {
       if (response) {
@@ -33,7 +29,11 @@ self.addEventListener("fetch", (event) => {
       }
 
       return fetch(event.request).then((response) => {
-        if (!response || response.status !== 200 || response.type !== "basic") {
+        if (
+          !response ||
+          response.status !== 200 ||
+          !response.url.startsWith("http")
+        ) {
           return response;
         }
 

@@ -14,7 +14,7 @@
     gtag("config", "G-32RRC75QRE");
   </script>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
   <title>carpediem23's Virtual Card Application</title>
   <link rel="icon" href="./assets/images/profile_transparent.webp" type="image/x-icon" />
   <meta name="description" content="carpediem23's Virtual Card Application" />
@@ -36,11 +36,47 @@
   <link rel="stylesheet" href="./styles/global.css">
   <script defer src="./scripts/index.js" type="module"></script>
 </head>
-
 <body>
   <main>
-    <section id="terminal-container"></section>
+    <section id="terminal-container">
+      <div class="terminal">
+        <header class="terminal-header">
+          <section class="terminal-buttons">
+            <div class="terminal-button close"></div>
+            <div class="terminal-button minimize"></div>
+            <div class="terminal-button maximize"></div>
+          </section>
+          <h1 class="terminal-title">carpediem23@portfolio ~ </h1>
+        </header>
+        <section class="terminal-content"></section>
+      </div>
+    </section>
   </main>
+  <!-- Templates -->
+  <template id="command-line-template">
+    <div class="command-line">
+      <span class="prompt">carpediem23@portfolio:~$</span>
+      <input name="type" type="text" class="command-input" autocomplete="off" />
+    </div>
+  </template>
+  <template id="help-template">
+    <div class="terminal-output">
+      <strong>Available Commands:</strong>
+      <p>- <strong>help:</strong> Show this help message</p>
+      <p>- <strong>about:</strong> Learn about me</p>
+      <p>- <strong>skills:</strong> View my technical skills</p>
+      <p>- <strong>projects:</strong> See my projects</p>
+      <p>- <strong>contact:</strong> Get my contact information</p>
+      <p>- <strong>clear:</strong> Clear the terminal</p>
+    </div>
+  </template>
+  <template id="welcome-template">
+    <div class="terminal-output">
+      <p>Welcome to my terminal vCard!</p>
+      <p>Type '<strong>help</strong>' to see available commands.</p>
+      <p>--------------------------------</p>
+    </div>
+  </template>
   <noscript>
     <div class="noscript-content">
       <img src="./assets/images/profile_transparent.webp" alt="Profile picture of carpediem23" width="150"
@@ -58,5 +94,4 @@
     </div>
   </noscript>
 </body>
-
 </html>

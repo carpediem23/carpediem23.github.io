@@ -2,6 +2,8 @@
   class Terminal {
     constructor(containerId) {
       this.container = document.getElementById(containerId);
+      this.terminal = this.container.querySelector(".terminal");
+      this.content = this.terminal.querySelector(".terminal-content");
       this.history = [];
       this.historyIndex = -1;
       this.commands = {
@@ -19,51 +21,26 @@
     }
 
     init() {
-      this.createTerminal();
       this.addEventListeners();
       this.showWelcomeMessage();
     }
 
-    createTerminal() {
-      this.terminal = document.createElement("div");
-      this.terminal.className = "terminal";
-
-      const header = `
-        <header class="terminal-header">
-          <section class="terminal-buttons">
-            <div class="terminal-button close"></div>
-            <div class="terminal-button minimize"></div>
-            <div class="terminal-button maximize"></div>
-          </section>
-          <h1 class="terminal-title">carpediem23@portfolio ~ </h1>
-        </header>
-        <section class="terminal-content"></section>
-      `;
-
-      this.terminal.innerHTML = header;
-      this.container.appendChild(this.terminal);
-    }
-
     showWelcomeMessage() {
-      const welcome = `
-        <p>Welcome to my terminal vCard!</p>
-        <p>Type '<strong>help</strong>' to see available commands.</p>
-        <p>--------------------------------</p>
-      `;
-      this.addOutput(welcome);
+      const template = document.getElementById("welcome-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
       this.createNewCommandLine();
     }
 
     addEventListeners() {
       document.addEventListener("keydown", (e) => {
-        const activeInput = document.activeElement;
-        if (
-          activeInput &&
-          activeInput.classList.contains("command-input") &&
-          e.key === "Enter" &&
-          activeInput.value.trim()
-        ) {
-          this.executeCommand(activeInput.value);
+        // Her zaman son input'u hedefle
+        const lastInput = this.terminal.querySelector(
+          ".command-input:not([disabled]):last-of-type",
+        );
+
+        if (e.key === "Enter" && lastInput && lastInput.value.trim()) {
+          this.executeCommand(lastInput.value);
         }
       });
 
@@ -77,10 +54,13 @@
       this.history.push(cmd);
       this.historyIndex = this.history.length;
 
-      const activeInput = document.activeElement;
-      if (activeInput && activeInput.classList.contains("command-input")) {
-        activeInput.disabled = true;
-        activeInput.value = command;
+      // Aktif input'u bul ve devre dışı bırak
+      const currentInput = this.terminal.querySelector(
+        ".command-input:not([disabled]):last-of-type",
+      );
+      if (currentInput) {
+        currentInput.disabled = true;
+        currentInput.value = command;
       }
 
       if (this.commands[cmd]) {
@@ -102,55 +82,35 @@
     }
 
     createNewCommandLine() {
-      const commandLine = document.createElement("div");
-      commandLine.className = "command-line";
-      commandLine.innerHTML = `
-        <span class="prompt">carpediem23@portfolio:~$</span>
-        <input type="text" class="command-input" autocomplete="off" />
-      `;
-      const content = this.terminal.querySelector(".terminal-content");
-      content.appendChild(commandLine);
-      const newInput = commandLine.querySelector(".command-input");
-      if (newInput) {
-        newInput.focus();
-        this.activeInput = newInput;
-      }
+      const template = document.getElementById("command-line-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
+
+      // Sayfayı en alta kaydır
+      this.content.scrollTop = this.content.scrollHeight;
+
+      // Son input'a odaklan
+      this.focusCurrentInput();
     }
 
     focusCurrentInput() {
-      setTimeout(() => {
-        const input = this.terminal.querySelector(
-          ".command-input:last-of-type",
+      requestAnimationFrame(() => {
+        const lastInput = this.terminal.querySelector(
+          ".command-input:not([disabled]):last-of-type",
         );
-        if (input) {
-          input.focus();
+        if (lastInput) {
+          lastInput.focus();
+          // Cursor'ı input'un sonuna taşı
+          const len = lastInput.value.length;
+          lastInput.setSelectionRange(len, len);
         }
-      }, 0);
+      });
     }
 
     showHelp() {
-      const helpText = `
-        <strong>Available Commands:</strong>
-        <p>
-          - <strong>help:</strong> Show this help message
-        </p>
-        <p>
-          - <strong>about:</strong> Learn about me
-        </p>
-        <p>
-          - <strong>skills:</strong> View my technical skills
-        </p>
-        <p>
-          - <strong>projects:</strong> See my projects
-        </p>
-        <p>
-          - <strong>contact:</strong> Get my contact information
-        </p>
-        <p>
-          - <strong>clear:</strong> Clear the terminal
-        </p>
-      `;
-      this.addOutput(helpText);
+      const template = document.getElementById("help-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
     }
 
     showAbout() {
