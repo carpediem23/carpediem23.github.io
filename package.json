@@ -1,0 +1,22 @@
+{
+  "name": "carpediem23.github.io",
+  "version": "2.1.1",
+  "description": "carpediem23 Virtual Card web application.",
+  "source": "./index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "npx parcel",
+    "build": "npx parcel build",
+    "format": "prettier --write .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "carpediem23",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.13.3",
+    "@parcel/service-worker": "^2.13.3",
+    "@parcel/transformer-webmanifest": "^2.13.3",
+    "parcel": "^2.13.3",
+    "prettier": "^3.4.2"
+  }
+}
