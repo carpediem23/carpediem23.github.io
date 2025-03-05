@@ -53,26 +53,33 @@
       const cmd = command.toLowerCase().trim();
       this.history.push(cmd);
       this.historyIndex = this.history.length;
-
-      // Aktif input'u bul ve devre dışı bırak
+    
       const currentInput = this.terminal.querySelector(
-        ".command-input:not([disabled]):last-of-type",
+        ".command-input:not([disabled]):last-of-type"
       );
       if (currentInput) {
         currentInput.disabled = true;
         currentInput.value = command;
       }
-
+    
+      // Google Tag Manager
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "terminalCommand",
+        command: cmd
+      });
+    
       if (this.commands[cmd]) {
         this.commands[cmd]();
       } else {
         this.addOutput(
-          `Command not found: ${cmd}\nType 'help' for available commands.`,
+          `Command not found: ${cmd}\nType 'help' for available commands.`
         );
       }
-
+    
       this.createNewCommandLine();
     }
+    
 
     addOutput(content) {
       const output = document.createElement("div");
