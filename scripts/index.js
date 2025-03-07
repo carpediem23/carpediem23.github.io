@@ -11,6 +11,7 @@
         about: () => this.showAbout(),
         skills: () => this.showSkills(),
         projects: () => this.showProjects(),
+        articles: () => this.showArticles(),
         contact: () => this.showContact(),
         clear: () => this.clearTerminal(),
       };
@@ -132,6 +133,12 @@
 
     showProjects() {
       const template = document.getElementById("projects-template");
+      const clone = template.content.cloneNode(true);
+      this.content.appendChild(clone);
+    }
+
+    showArticles() {
+      const template = document.getElementById("articles-template");
       const clone = template.content.cloneNode(true);
       this.content.appendChild(clone);
     }
